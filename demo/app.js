@@ -30,7 +30,7 @@ return $o.join("\n").replace(/\s(?:id|class)=(['"])(\1)/mg, "");
 }).call(options)
 };
 },{}],"/home/tony/git/angular-scrollrepeat/demo/thingies.json":[function(require,module,exports){
-module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=[
+module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=[
 	{
 		"id": 1,
 		"name": "Lev Bright",
@@ -551,14 +551,13 @@ var ITEM_WEIGHT;
 ITEM_WEIGHT = 20;
 
 module.exports = function(scope, el, attrs) {
-  var range, scrollPosition;
+  var lastTouchY, range, scroll, scrollPosition;
   scrollPosition = 0;
   range = scope.zddScrollRepeat;
-  return el.on('wheel', function(ev) {
+  lastTouchY = 0;
+  scroll = function(deltaY) {
     var maxEnd, newPos;
-    ev.stopPropagation();
-    ev.preventDefault();
-    newPos = scrollPosition + ev.deltaY;
+    newPos = scrollPosition + deltaY;
     maxEnd = (range.collection.length - range.length) * ITEM_WEIGHT;
     scrollPosition = Math.max(0, Math.min(maxEnd, newPos));
     range.start = Math.floor(scrollPosition / ITEM_WEIGHT);
@@ -567,6 +566,21 @@ module.exports = function(scope, el, attrs) {
       el.css('transform', "translateY(" + range.translation + "px)");
     }
     return scope.$apply();
+  };
+  el.on('touchstart', function(ev) {
+    return lastTouchY = ev.changedTouches[0].screenY;
+  });
+  el.on('touchmove', function(ev) {
+    var deltaY, y;
+    y = ev.changedTouches[0].screenY;
+    deltaY = lastTouchY - y;
+    scroll(deltaY);
+    return lastTouchY = y;
+  });
+  return el.on('wheel', function(ev) {
+    ev.stopPropagation();
+    ev.preventDefault();
+    return scroll(ev.deltaY);
   });
 };
 
