@@ -1,5 +1,5 @@
 module.exports = ->
-  restrict: 'E'
+  restrict: 'A'
   scope:
     range: '='
     collection: '='
