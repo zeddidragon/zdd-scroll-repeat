@@ -1,7 +1,6 @@
 module.exports = ->
   restrict: 'A'
   scope:
-    range: '='
-    collection: '='
+    zddScrollRepeat: '='
   controller: require './controller'
   link: require './linker'

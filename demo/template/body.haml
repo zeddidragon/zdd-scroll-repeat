@@ -1,3 +1,11 @@
+%ul(zdd-scroll-repeat="range"
+  ng-style="{transform: 'translateY(' + range.translation + 'px)'}")
+  %li(ng-repeat="thing in thingies | zddScrollFilter:range"
+    ng-style="{backgroundColor: thing.color}")
+    .id {{thing.id}}
+    .name {{thing.name}}
+    .color {{thing.color}}
+
 %style
   ul {
     list-style-type: none;
@@ -8,14 +16,7 @@
     margin: 2px;
     display: flex;
   }
+
   li>* {
-    flex: 1
+    flex: 1;
   }
-
-
-%ul(zdd-scrollrepeat="range" collection="things")
-  %li(ng-repeat="thing in thingies as things" 
-    ng-style="{backgroundColor: thing.color}")
-    .id {{thing.id}}
-    .name {{thing.name}}
-    .color {{thing.color}}

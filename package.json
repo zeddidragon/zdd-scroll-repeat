@@ -4,7 +4,7 @@
   "description": "ng-repeat is too slow with a mere thousand objects, so we made this hack to only render a few at a time",
   "main": "index.js",
   "scripts": {
-    "start": "beefy ./demo/app.coffee --open --live -- --extension='.coffee' --extension='.haml'",
+    "start": "watchify ./demo/app.coffee -o ./demo/app.js --extension='.coffee' --extension='.haml'", 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
