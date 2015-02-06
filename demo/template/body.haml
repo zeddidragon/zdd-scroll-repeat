@@ -1,5 +1,4 @@
-%ul(zdd-scroll-repeat="range"
-  ng-style="{transform: 'translateY(' + range.translation + 'px)'}")
+%ul(zdd-scroll-repeat="range")
   %li(ng-repeat="thing in thingies | zddScrollFilter:range"
     ng-style="{backgroundColor: thing.color}")
     .id {{thing.id}}

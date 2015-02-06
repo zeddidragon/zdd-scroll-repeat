@@ -23,14 +23,14 @@ var $o;
 
 $o = [];
 
-$o.push("<ul zdd-scroll-repeat='range' ng-style=\"{transform: 'translateY(' + range.translation + 'px)'}\">\n  <li ng-repeat='thing in thingies | zddScrollFilter:range' ng-style='{backgroundColor: thing.color}'>\n    <div class='id'>{{thing.id}}</div>\n    <div class='name'>{{thing.name}}</div>\n    <div class='color'>{{thing.color}}</div>\n  </li>\n</ul>\n<style>\n  ul {\n    list-style-type: none;\n    padding: 0;\n  }\n  li {\n    padding: 5px;\n    margin: 2px;\n    display: flex;\n  }\n  li>* {\n    flex: 1;\n  }\n</style>");
+$o.push("<ul zdd-scroll-repeat='range'>\n  <li ng-repeat='thing in thingies | zddScrollFilter:range' ng-style='{backgroundColor: thing.color}'>\n    <div class='id'>{{thing.id}}</div>\n    <div class='name'>{{thing.name}}</div>\n    <div class='color'>{{thing.color}}</div>\n  </li>\n</ul>\n<style>\n  ul {\n    list-style-type: none;\n    padding: 0;\n  }\n  li {\n    padding: 5px;\n    margin: 2px;\n    display: flex;\n  }\n  li>* {\n    flex: 1;\n  }\n</style>");
 
 return $o.join("\n").replace(/\s(?:id|class)=(['"])(\1)/mg, "");
 
 }).call(options)
 };
 },{}],"/home/tony/git/angular-scrollrepeat/demo/thingies.json":[function(require,module,exports){
-module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=[
+module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=[
 	{
 		"id": 1,
 		"name": "Lev Bright",
@@ -557,12 +557,15 @@ module.exports = function(scope, el, attrs) {
   return el.on('wheel', function(ev) {
     var maxEnd, newPos;
     ev.stopPropagation();
+    ev.preventDefault();
     newPos = scrollPosition + ev.deltaY;
-    console.log(scrollPosition, ev.deltaY);
     maxEnd = (range.collection.length - range.length) * ITEM_WEIGHT;
     scrollPosition = Math.max(0, Math.min(maxEnd, newPos));
     range.start = Math.floor(scrollPosition / ITEM_WEIGHT);
     range.translation = scrollPosition % ITEM_WEIGHT;
+    if (!range.noTranslate) {
+      el.css('transform', "translateY(" + range.translation + "px)");
+    }
     return scope.$apply();
   });
 };
