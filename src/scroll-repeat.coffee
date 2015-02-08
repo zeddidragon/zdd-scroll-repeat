@@ -1,6 +1,7 @@
-module.exports = ->
+module.exports =  ['$compile', '$document', ($compile, $document) ->
   restrict: 'A'
   scope:
     zddScrollRepeat: '='
   controller: require './controller'
-  link: require './linker'
+  link: require('./linker')($compile, $document)
+]
