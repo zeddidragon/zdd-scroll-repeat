@@ -1,5 +1,5 @@
 {
-  "name": "angular-scrollrepeat",
+  "name": "zdd-scroll-repeat",
   "version": "1.0.0",
   "description": "ng-repeat is too slow with a mere thousand objects, so we made this hack to only render a few at a time",
   "main": "index.js",
