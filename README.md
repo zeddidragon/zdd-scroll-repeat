@@ -35,6 +35,10 @@ Mess around with them to your liking. :)
 
 The rail might look wrong initially unless the container has position:relative.
 
+## Demo
+
+http://zeddidragon.github.io/zdd-scroll-repeat/
+
 ## Contributing
 
 1. Fork it!
