@@ -1,6 +1,543 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 
 },{}],2:[function(require,module,exports){
+require('insert-css')(require('./styles'));
+
+angular.module('scrollrepeatDemo', [require('../src/index').name]).directive('body', function() {
+  return {
+    template: require('./template/body'),
+    controller: function($scope) {
+      $scope.thingies = require('./thingies.json');
+      $scope.things = {};
+      return $scope.range = {
+        length: 20
+      };
+    }
+  };
+});
+
+angular.bootstrap(document.body, ['scrollrepeatDemo']);
+
+
+
+},{"../src/index":9,"./styles":3,"./template/body":4,"./thingies.json":5,"insert-css":6}],3:[function(require,module,exports){
+module.exports = "ul{list-style-type:none;padding:0;position:relative}li{padding:5px;margin:2px;display:flex}li>*{flex:1}"
+
+},{}],4:[function(require,module,exports){
+var jade = require("jade/runtime");
+
+module.exports = function template(locals) {
+var buf = [];
+var jade_mixins = {};
+var jade_interp;
+
+buf.push("<ul zdd-scroll-repeat=\"range\"><li ng-repeat=\"thing in thingies | zddScrollFilter:range\" ng-style=\"{backgroundColor: thing.color}\"><div class=\"id\">{{thing.id}}</div><div class=\"name\">{{thing.name}}</div><div class=\"color\">{{thing.color}}</div></li></ul><ul zdd-scroll-repeat=\"range2 || (range2={length:3})\"><li ng-repeat=\"thing in thingies | zddScrollFilter:range2\" ng-style=\"{backgroundColor: thing.color}\"><div class=\"id\">{{thing.id}}</div><div class=\"name\">{{thing.name}}</div><div class=\"color\">{{thing.color}}</div></li></ul>");;return buf.join("");
+};
+},{"jade/runtime":7}],5:[function(require,module,exports){
+module.exports=[
+	{
+		"id": 1,
+		"name": "Lev Bright",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 2,
+		"name": "Bruno Rush",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 3,
+		"name": "Nehru Rojas",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 4,
+		"name": "Libby Heath",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 5,
+		"name": "Montana Robbins",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 6,
+		"name": "Moses Beck",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 7,
+		"name": "Eagan Burton",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 8,
+		"name": "Kelly Martinez",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 9,
+		"name": "Isadora Dickson",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 10,
+		"name": "Cole Wilcox",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 11,
+		"name": "Desirae Wise",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 12,
+		"name": "Iliana Clay",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 13,
+		"name": "Hanae Cunningham",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 14,
+		"name": "Ignacia Decker",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 15,
+		"name": "Madaline Vaughn",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 16,
+		"name": "Shelly Hebert",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 17,
+		"name": "Halla Parsons",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 18,
+		"name": "Valentine Duncan",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 19,
+		"name": "Owen Kirby",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 20,
+		"name": "Ruby Simpson",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 21,
+		"name": "Colorado Dixon",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 22,
+		"name": "Kyra Huffman",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 23,
+		"name": "Shay Bauer",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 24,
+		"name": "Ariana Vaughan",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 25,
+		"name": "Jordan Hopkins",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 26,
+		"name": "Dakota Mccarty",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 27,
+		"name": "Tiger Melendez",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 28,
+		"name": "Autumn Nielsen",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 29,
+		"name": "Diana Sanders",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 30,
+		"name": "Kadeem Hays",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 31,
+		"name": "Ulla Langley",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 32,
+		"name": "Briar Massey",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 33,
+		"name": "Fletcher Page",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 34,
+		"name": "Hasad Berger",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 35,
+		"name": "Cherokee Anderson",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 36,
+		"name": "Cassidy Fletcher",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 37,
+		"name": "Genevieve Farmer",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 38,
+		"name": "Duncan Russo",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 39,
+		"name": "Vernon Hess",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 40,
+		"name": "Chantale Hewitt",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 41,
+		"name": "Gannon Griffith",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 42,
+		"name": "Amelia Buckner",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 43,
+		"name": "Yoshi Chambers",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 44,
+		"name": "Bo Clements",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 45,
+		"name": "Courtney Martin",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 46,
+		"name": "Sybil Foster",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 47,
+		"name": "Brett Mercado",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 48,
+		"name": "Lucius Avila",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 49,
+		"name": "Oliver Burns",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 50,
+		"name": "Piper Camacho",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 51,
+		"name": "Joel Weiss",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 52,
+		"name": "Ramona Curry",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 53,
+		"name": "Iliana Francis",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 54,
+		"name": "Angela Stanton",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 55,
+		"name": "Jolene Rasmussen",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 56,
+		"name": "Alana Parks",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 57,
+		"name": "Bryar Ford",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 58,
+		"name": "Cedric Glenn",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 59,
+		"name": "Ashely Gallegos",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 60,
+		"name": "Illiana Ayala",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 61,
+		"name": "Nita Santos",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 62,
+		"name": "Ila Blevins",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 63,
+		"name": "Finn Morton",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 64,
+		"name": "Imani Wong",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 65,
+		"name": "Cailin Hill",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 66,
+		"name": "Lance Sexton",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 67,
+		"name": "Hasad Townsend",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 68,
+		"name": "Desirae Juarez",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 69,
+		"name": "Brody Cummings",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 70,
+		"name": "Kiara Sampson",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 71,
+		"name": "Eve Gibson",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 72,
+		"name": "Ann Meyer",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 73,
+		"name": "Jamalia Hatfield",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 74,
+		"name": "Connor Rush",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 75,
+		"name": "Tate Howe",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 76,
+		"name": "Kimberley Hayes",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 77,
+		"name": "Elaine Noel",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 78,
+		"name": "Yasir Hodge",
+		"color": "rgba(238, 238, 130, 0.5)"
+	},
+	{
+		"id": 79,
+		"name": "Athena Valentine",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 80,
+		"name": "Caesar Horton",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 81,
+		"name": "Macon Bird",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 82,
+		"name": "Elijah Head",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 83,
+		"name": "Haley Richards",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 84,
+		"name": "Justine Ashley",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 85,
+		"name": "Karly Moon",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 86,
+		"name": "Gareth Perry",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 87,
+		"name": "Gage Olson",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 88,
+		"name": "Benedict Briggs",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 89,
+		"name": "Damon Hess",
+		"color": "rgba(130, 238, 238, 0.5)"
+	},
+	{
+		"id": 90,
+		"name": "Chester Frank",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 91,
+		"name": "Quinn Tanner",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 92,
+		"name": "Bertha Paul",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 93,
+		"name": "Howard French",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 94,
+		"name": "Halee Benjamin",
+		"color": "rgba(238, 130, 238, 0.5)"
+	},
+	{
+		"id": 95,
+		"name": "Felicia Kidd",
+		"color": "rgba(75, 0, 130, 0.5)"
+	},
+	{
+		"id": 96,
+		"name": "Hayley Humphrey",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 97,
+		"name": "Caesar Willis",
+		"color": "rgba(0, 0, 200, 0.5)"
+	},
+	{
+		"id": 98,
+		"name": "Donna Powers",
+		"color": "rgba(200, 0, 0, 0.5)"
+	},
+	{
+		"id": 99,
+		"name": "Lionel Bates",
+		"color": "rgba(0, 200, 0, 0.5)"
+	},
+	{
+		"id": 100,
+		"name": "Hillary Mccarthy",
+		"color": "rgba(238, 130, 238, 0.5)"
+	}
+]
+
+},{}],6:[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -24,7 +561,7 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],3:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -265,21 +802,21 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 },{}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"fs":1}],4:[function(require,module,exports){
+},{"fs":1}],8:[function(require,module,exports){
 module.exports = function($scope) {
   return null;
 };
 
 
 
-},{}],5:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('insert-css')(require('./styles'));
 
 module.exports = angular.module('zdd-scrollrepeat', []).directive('zddScrollRepeat', require('./scroll-repeat')).filter('zddScrollFilter', require('./scroll-filter'));
 
 
 
-},{"./scroll-filter":7,"./scroll-repeat":8,"./styles":9,"insert-css":2}],6:[function(require,module,exports){
+},{"./scroll-filter":11,"./scroll-repeat":12,"./styles":13,"insert-css":6}],10:[function(require,module,exports){
 var ITEM_WEIGHT, THUMB_CORRECTION, template;
 
 template = require('./template');
@@ -356,7 +893,7 @@ module.exports = function($compile, $document) {
 
 
 
-},{"./template":10}],7:[function(require,module,exports){
+},{"./template":14}],11:[function(require,module,exports){
 module.exports = function() {
   return function(arr, range) {
     range.collection = arr;
@@ -367,7 +904,7 @@ module.exports = function() {
 
 
 
-},{}],8:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 module.exports = [
   '$compile', '$document', function($compile, $document) {
     return {
@@ -383,10 +920,10 @@ module.exports = [
 
 
 
-},{"./controller":4,"./linker":6}],9:[function(require,module,exports){
+},{"./controller":8,"./linker":10}],13:[function(require,module,exports){
 module.exports = ".zdd-scrollbar-rail{position:absolute;width:12px;height:100%;background-color:rgba(98,98,98,0.5);right:5px;top:0}.zdd-scrollbar-thumb{position:relative;transform:translateY(-50%);width:150%;height:30px;background-color:#000;border-radius:20%;margin-left:-25%}"
 
-},{}],10:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -396,4 +933,4 @@ var jade_interp;
 
 buf.push("<div class=\"zdd-scrollbar-rail\"><div class=\"zdd-scrollbar-thumb\"></div></div>");;return buf.join("");
 };
-},{"jade/runtime":3}]},{},[5]);
+},{"jade/runtime":7}]},{},[2]);
