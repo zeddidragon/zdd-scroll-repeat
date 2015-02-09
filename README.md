@@ -15,6 +15,12 @@ In your module declaration:
 angular.module('YourAwesomeModule', ['zddScrollRepeat', ...])
 ```
 
+The module uses the 'deltaY' event of 'mousewheel' for the sake of scrolling.
+If you're using jQuery, you'll have to add this property to the event object:
+```js
+jQuery.event.props.push('deltaY')
+```
+
 ## Usage
 
 HTML
