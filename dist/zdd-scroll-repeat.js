@@ -275,7 +275,7 @@ module.exports = function($scope) {
 },{}],5:[function(require,module,exports){
 require('insert-css')(require('./styles'));
 
-module.exports = angular.module('zdd-scrollrepeat', []).directive('zddScrollRepeat', require('./scroll-repeat')).filter('zddScrollFilter', require('./scroll-filter'));
+module.exports = angular.module('zddScrollRepeat', []).directive('zddScrollRepeat', require('./scroll-repeat')).filter('zddScrollFilter', require('./scroll-filter'));
 
 
 
