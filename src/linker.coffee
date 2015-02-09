@@ -49,6 +49,9 @@ module.exports = ($compile, $document) ->
         ev.preventDefault()
         scrollTo(ev.clientY - THUMB_CORRECTION)
 
+    $document.on 'mouseup', (ev)->
+      mousedown = false
+
     el.on 'touchstart', (ev) ->
       lastTouchY = ev.changedTouches[0].screenY
 

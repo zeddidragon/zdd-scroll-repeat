@@ -336,6 +336,9 @@ module.exports = function($compile, $document) {
         return scrollTo(ev.clientY - THUMB_CORRECTION);
       }
     });
+    $document.on('mouseup', function(ev) {
+      return mousedown = false;
+    });
     el.on('touchstart', function(ev) {
       return lastTouchY = ev.changedTouches[0].screenY;
     });
