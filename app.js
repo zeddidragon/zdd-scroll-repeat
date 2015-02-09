@@ -1,6 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-
-},{}],2:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/home/tony/git/angular-scrollrepeat/demo/app.coffee":[function(require,module,exports){
 require('insert-css')(require('./styles'));
 
 angular.module('scrollrepeatDemo', [require('../src/index').name]).directive('body', function() {
@@ -20,10 +18,10 @@ angular.bootstrap(document.body, ['scrollrepeatDemo']);
 
 
 
-},{"../src/index":9,"./styles":3,"./template/body":4,"./thingies.json":5,"insert-css":6}],3:[function(require,module,exports){
+},{"../src/index":"/home/tony/git/angular-scrollrepeat/src/index.coffee","./styles":"/home/tony/git/angular-scrollrepeat/demo/styles.styl","./template/body":"/home/tony/git/angular-scrollrepeat/demo/template/body.jade","./thingies.json":"/home/tony/git/angular-scrollrepeat/demo/thingies.json","insert-css":"/home/tony/git/angular-scrollrepeat/node_modules/insert-css/index.js"}],"/home/tony/git/angular-scrollrepeat/demo/styles.styl":[function(require,module,exports){
 module.exports = "ul{list-style-type:none;padding:0;position:relative}li{padding:5px;margin:2px;display:flex}li>*{flex:1}"
 
-},{}],4:[function(require,module,exports){
+},{}],"/home/tony/git/angular-scrollrepeat/demo/template/body.jade":[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -33,8 +31,8 @@ var jade_interp;
 
 buf.push("<ul zdd-scroll-repeat=\"range\"><li ng-repeat=\"thing in thingies | zddScrollFilter:range\" ng-style=\"{backgroundColor: thing.color}\"><div class=\"id\">{{thing.id}}</div><div class=\"name\">{{thing.name}}</div><div class=\"color\">{{thing.color}}</div></li></ul><ul zdd-scroll-repeat=\"range2 || (range2={length:3})\"><li ng-repeat=\"thing in thingies | zddScrollFilter:range2\" ng-style=\"{backgroundColor: thing.color}\"><div class=\"id\">{{thing.id}}</div><div class=\"name\">{{thing.name}}</div><div class=\"color\">{{thing.color}}</div></li></ul>");;return buf.join("");
 };
-},{"jade/runtime":7}],5:[function(require,module,exports){
-module.exports=[
+},{"jade/runtime":"/home/tony/git/angular-scrollrepeat/node_modules/jade/runtime.js"}],"/home/tony/git/angular-scrollrepeat/demo/thingies.json":[function(require,module,exports){
+module.exports=module.exports=[
 	{
 		"id": 1,
 		"name": "Lev Bright",
@@ -537,7 +535,9 @@ module.exports=[
 	}
 ]
 
-},{}],6:[function(require,module,exports){
+},{}],"/home/tony/git/angular-scrollrepeat/node_modules/browserify/node_modules/browser-resolve/empty.js":[function(require,module,exports){
+
+},{}],"/home/tony/git/angular-scrollrepeat/node_modules/insert-css/index.js":[function(require,module,exports){
 var inserted = {};
 
 module.exports = function (css, options) {
@@ -561,7 +561,7 @@ module.exports = function (css, options) {
     }
 };
 
-},{}],7:[function(require,module,exports){
+},{}],"/home/tony/git/angular-scrollrepeat/node_modules/jade/runtime.js":[function(require,module,exports){
 (function (global){
 !function(e){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=e();else if("function"==typeof define&&define.amd)define([],e);else{var f;"undefined"!=typeof window?f=window:"undefined"!=typeof global?f=global:"undefined"!=typeof self&&(f=self),f.jade=e()}}(function(){var define,module,exports;return (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
@@ -802,21 +802,21 @@ exports.rethrow = function rethrow(err, filename, lineno, str){
 },{}]},{},[1])(1)
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"fs":1}],8:[function(require,module,exports){
+},{"fs":"/home/tony/git/angular-scrollrepeat/node_modules/browserify/node_modules/browser-resolve/empty.js"}],"/home/tony/git/angular-scrollrepeat/src/controller.coffee":[function(require,module,exports){
 module.exports = function($scope) {
   return null;
 };
 
 
 
-},{}],9:[function(require,module,exports){
+},{}],"/home/tony/git/angular-scrollrepeat/src/index.coffee":[function(require,module,exports){
 require('insert-css')(require('./styles'));
 
 module.exports = angular.module('zdd-scrollrepeat', []).directive('zddScrollRepeat', require('./scroll-repeat')).filter('zddScrollFilter', require('./scroll-filter'));
 
 
 
-},{"./scroll-filter":11,"./scroll-repeat":12,"./styles":13,"insert-css":6}],10:[function(require,module,exports){
+},{"./scroll-filter":"/home/tony/git/angular-scrollrepeat/src/scroll-filter.coffee","./scroll-repeat":"/home/tony/git/angular-scrollrepeat/src/scroll-repeat.coffee","./styles":"/home/tony/git/angular-scrollrepeat/src/styles.styl","insert-css":"/home/tony/git/angular-scrollrepeat/node_modules/insert-css/index.js"}],"/home/tony/git/angular-scrollrepeat/src/linker.coffee":[function(require,module,exports){
 var ITEM_WEIGHT, THUMB_CORRECTION, template;
 
 template = require('./template');
@@ -873,6 +873,9 @@ module.exports = function($compile, $document) {
         return scrollTo(ev.clientY - THUMB_CORRECTION);
       }
     });
+    $document.on('mouseup', function(ev) {
+      return mousedown = false;
+    });
     el.on('touchstart', function(ev) {
       return lastTouchY = ev.changedTouches[0].screenY;
     });
@@ -893,7 +896,7 @@ module.exports = function($compile, $document) {
 
 
 
-},{"./template":14}],11:[function(require,module,exports){
+},{"./template":"/home/tony/git/angular-scrollrepeat/src/template.jade"}],"/home/tony/git/angular-scrollrepeat/src/scroll-filter.coffee":[function(require,module,exports){
 module.exports = function() {
   return function(arr, range) {
     range.collection = arr;
@@ -904,7 +907,7 @@ module.exports = function() {
 
 
 
-},{}],12:[function(require,module,exports){
+},{}],"/home/tony/git/angular-scrollrepeat/src/scroll-repeat.coffee":[function(require,module,exports){
 module.exports = [
   '$compile', '$document', function($compile, $document) {
     return {
@@ -920,10 +923,10 @@ module.exports = [
 
 
 
-},{"./controller":8,"./linker":10}],13:[function(require,module,exports){
+},{"./controller":"/home/tony/git/angular-scrollrepeat/src/controller.coffee","./linker":"/home/tony/git/angular-scrollrepeat/src/linker.coffee"}],"/home/tony/git/angular-scrollrepeat/src/styles.styl":[function(require,module,exports){
 module.exports = ".zdd-scrollbar-rail{position:absolute;width:12px;height:100%;background-color:rgba(98,98,98,0.5);right:5px;top:0}.zdd-scrollbar-thumb{position:relative;transform:translateY(-50%);width:150%;height:30px;background-color:#000;border-radius:20%;margin-left:-25%}"
 
-},{}],14:[function(require,module,exports){
+},{}],"/home/tony/git/angular-scrollrepeat/src/template.jade":[function(require,module,exports){
 var jade = require("jade/runtime");
 
 module.exports = function template(locals) {
@@ -933,4 +936,4 @@ var jade_interp;
 
 buf.push("<div class=\"zdd-scrollbar-rail\"><div class=\"zdd-scrollbar-thumb\"></div></div>");;return buf.join("");
 };
-},{"jade/runtime":7}]},{},[2]);
+},{"jade/runtime":"/home/tony/git/angular-scrollrepeat/node_modules/jade/runtime.js"}]},{},["/home/tony/git/angular-scrollrepeat/demo/app.coffee"]);
