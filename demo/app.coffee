@@ -1,3 +1,5 @@
+require('insert-css')(require('./styles'))
+
 angular.module 'scrollrepeatDemo', [require('../src/index').name]
   .directive 'body', ->
     template: require('./template/body')

@@ -37,12 +37,11 @@ module.exports = ($compile, $document) ->
       # Apply transformation style
       offset = range.start / (range.collection.length - range.length)
       $thumb.css('top', "#{offset * 100}%")
-      unless range.noTranslate
-        el.css('transform', "translateY(#{range.translation}px)")
 
       scope.$apply()
 
-    $rail.on 'click', (ev) ->
+    $rail.on 'mousedown', (ev) ->
+      mousedown = true
       scrollTo(ev.clientY)
 
     $document.on 'mousemove', (ev)->
@@ -52,10 +51,6 @@ module.exports = ($compile, $document) ->
 
     el.on 'touchstart', (ev) ->
       lastTouchY = ev.changedTouches[0].screenY
-
-    $thumb.on 'mousedown', (ev)->
-      lastTouchY = ev.screenY
-      mousedown = true
 
     el.on 'touchmove', (ev) ->
       y = ev.changedTouches[0].screenY
