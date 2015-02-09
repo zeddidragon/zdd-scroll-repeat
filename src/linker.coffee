@@ -13,34 +13,34 @@ module.exports = ($compile, $document) ->
     $thumb = angular.element($rail.children()[0])
     el.append($rail)
 
+    containerTop = 0
+    containerHeight = 0
+
     scrollTo = (y) ->
-      length = range.collection.length - range.length
-      ratio  = (y-$rail[0].getBoundingClientRect().top) / $rail[0].offsetHeight
-      index  = Math.floor(ratio * (range.collection.length - range.length))
-      range.start = Math.max(0, Math.min(index, length))
-      if index < 0
-        $thumb.css('top', "0%")
-      else if index > length
-        $thumb.css('top', "100%")
-      else
-        $thumb.css('top', "#{ratio * 100}%")
-      scope.$apply()
+      scope.$applyAsync ->
+        length = range.collection.length - range.length
+        ratio  = (y - containerTop) / containerHeight
+        index  = Math.floor(ratio * (range.collection.length - range.length))
+        range.start = Math.max(0, Math.min(index, length))
+        ratio = Math.max(Math.min(ratio, 1.0), 0.0) * 100
+        $thumb.css('top', "#{ratio}%")
 
     scroll = (deltaY) ->
-      # Calculate range values
-      newPos = scrollPosition + deltaY
-      maxEnd = (range.collection.length - range.length) * ITEM_WEIGHT
-      scrollPosition = Math.max(0, Math.min(maxEnd, newPos))
-      range.start = Math.floor(scrollPosition / ITEM_WEIGHT)
-      range.translation = scrollPosition % ITEM_WEIGHT
+      scope.$applyAsync ->
+        # Calculate range values
+        newPos = scrollPosition + deltaY
+        maxEnd = (range.collection.length - range.length) * ITEM_WEIGHT
+        scrollPosition = Math.max(0, Math.min(maxEnd, newPos))
+        range.start = Math.floor(scrollPosition / ITEM_WEIGHT)
+        range.translation = scrollPosition % ITEM_WEIGHT
 
-      # Apply transformation style
-      offset = range.start / (range.collection.length - range.length)
-      $thumb.css('top', "#{offset * 100}%")
-
-      scope.$apply()
+        # Apply transformation style
+        offset = range.start / (range.collection.length - range.length)
+        $thumb.css('top', "#{offset * 100}%")
 
     $rail.on 'mousedown', (ev) ->
+      containerTop = $rail[0].getBoundingClientRect().top
+      containerHeight = $rail[0].offsetHeight
       mousedown = true
       scrollTo(ev.clientY)
 
@@ -57,9 +57,6 @@ module.exports = ($compile, $document) ->
       deltaY = lastTouchY - y
       scroll(deltaY)
       lastTouchY = y
-
-    $document.on 'mouseup', (ev)->
-      mousedown = false
 
     el.on 'wheel', (ev) ->
       # Stop defaults to keep window from scrolling
