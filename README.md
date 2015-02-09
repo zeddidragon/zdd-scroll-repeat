@@ -10,6 +10,11 @@ actually be rendered. This increases responsiveness a lot!
 $ bower install zdd-scroll-repeat
 ```
 
+In your module declaration:
+```js
+angular.module('YourAwesomeModule', ['zddScrollRepeat', ...])
+```
+
 ## Usage
 
 HTML
