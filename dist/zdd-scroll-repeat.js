@@ -362,9 +362,15 @@ module.exports = function($compile, $document) {
 },{"./template":10}],7:[function(require,module,exports){
 module.exports = function() {
   return function(arr, range) {
+    var end, start;
+    if (!arr) {
+      return [];
+    }
     range.collection = arr;
     range.start || (range.start = 0);
-    return arr.slice(range.start, range.start + range.length);
+    end = Math.min(range.start + range.length, arr.length);
+    start = Math.max(0, end - range.length);
+    return arr.slice(start, end);
   };
 };
 

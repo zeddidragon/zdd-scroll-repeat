@@ -1,6 +1,6 @@
 {
   "name": "zdd-scroll-repeat",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "ng-repeat is too slow with a mere thousand objects, so we made this hack to only render a few at a time",
   "main": "dist/zdd-scroll-repeat.js",
   "homepage": "https://github.com/zeddidragon/zdd-scroll-repeat",
