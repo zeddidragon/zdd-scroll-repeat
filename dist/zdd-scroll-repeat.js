@@ -403,6 +403,6 @@ var buf = [];
 var jade_mixins = {};
 var jade_interp;
 
-buf.push("<div class=\"zdd-scrollbar-rail\"><div class=\"zdd-scrollbar-thumb\"></div></div>");;return buf.join("");
+buf.push("<div ng-show=\"zddScrollRepeat.collection.length &gt; zddScrollRepeat.length\" class=\"zdd-scrollbar-rail\"><div class=\"zdd-scrollbar-thumb\"></div></div>");;return buf.join("");
 };
 },{"jade/runtime":3}]},{},[5]);

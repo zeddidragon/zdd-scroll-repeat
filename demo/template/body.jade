@@ -5,10 +5,9 @@ ul(zdd-scroll-repeat="range")
     .name {{thing.name}}
     .color {{thing.color}}
     
-ul(zdd-scroll-repeat="range2 || (range2={length:3})")
+ul(zdd-scroll-repeat="range2 || (range2={length:10})")
   li(ng-repeat="thing in thingies | limitTo:limit | zddScrollFilter:range2"
     ng-style="{backgroundColor: thing.color}")
     .id {{thing.id}}
     .name {{thing.name}}
     .color {{thing.color}}
-
