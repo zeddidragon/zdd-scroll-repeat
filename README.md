@@ -62,6 +62,10 @@ http://zeddidragon.github.io/zdd-scroll-repeat/
 
 9/2/2015 - Initial release
 
+Some stuff happened
+
+18/3/2015 - Fixed scoping issue
+
 ## Credits
 
 - Tony Sæle - Helmsman
