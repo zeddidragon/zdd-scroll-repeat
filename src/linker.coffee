@@ -7,7 +7,6 @@ module.exports = ($compile, $document) ->
     rail = $compile(template())
     mousedown = false
     scrollPosition = 0
-    range = scope.zddScrollRepeat
     lastTouchY = 0
     $rail = rail(scope)
     $thumb = angular.element($rail.children()[0])
@@ -17,6 +16,7 @@ module.exports = ($compile, $document) ->
     containerHeight = 0
 
     scrollTo = (y) ->
+      range = scope.zddScrollRepeat
       scope.$applyAsync ->
         length = range.collection.length - range.length
         ratio  = (y - containerTop) / containerHeight
@@ -26,6 +26,7 @@ module.exports = ($compile, $document) ->
         $thumb.css('top', "#{ratio}%")
 
     scroll = (deltaY) ->
+      range = scope.zddScrollRepeat
       scope.$applyAsync ->
         # Calculate range values
         newPos = scrollPosition + deltaY
