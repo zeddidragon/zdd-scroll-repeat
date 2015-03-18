@@ -290,11 +290,10 @@ THUMB_CORRECTION = 15;
 
 module.exports = function($compile, $document) {
   return function(scope, el, attrs) {
-    var $rail, $thumb, containerHeight, containerTop, lastTouchY, mousedown, rail, range, scroll, scrollPosition, scrollTo;
+    var $rail, $thumb, containerHeight, containerTop, lastTouchY, mousedown, rail, scroll, scrollPosition, scrollTo;
     rail = $compile(template());
     mousedown = false;
     scrollPosition = 0;
-    range = scope.zddScrollRepeat;
     lastTouchY = 0;
     $rail = rail(scope);
     $thumb = angular.element($rail.children()[0]);
@@ -302,6 +301,8 @@ module.exports = function($compile, $document) {
     containerTop = 0;
     containerHeight = 0;
     scrollTo = function(y) {
+      var range;
+      range = scope.zddScrollRepeat;
       return scope.$applyAsync(function() {
         var index, length, ratio;
         length = range.collection.length - range.length;
@@ -313,6 +314,8 @@ module.exports = function($compile, $document) {
       });
     };
     scroll = function(deltaY) {
+      var range;
+      range = scope.zddScrollRepeat;
       return scope.$applyAsync(function() {
         var maxEnd, newPos, offset;
         newPos = scrollPosition + deltaY;
