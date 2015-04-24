@@ -357,7 +357,6 @@ module.exports = function($compile, $document) {
     return el.on('wheel', function(ev) {
       ev.stopPropagation();
       ev.preventDefault();
-      debugger;
       return scroll(Math.sign(ev.deltaY) * SENSITIVITY);
     });
   };
