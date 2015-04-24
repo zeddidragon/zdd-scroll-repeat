@@ -280,13 +280,15 @@ module.exports = angular.module('zddScrollRepeat', []).directive('zddScrollRepea
 
 
 },{"./scroll-filter":7,"./scroll-repeat":8,"./styles":9,"insert-css":2}],6:[function(require,module,exports){
-var ITEM_WEIGHT, THUMB_CORRECTION, template;
+var ITEM_WEIGHT, SENSITIVITY, THUMB_CORRECTION, template;
 
 template = require('./template');
 
 ITEM_WEIGHT = 20;
 
 THUMB_CORRECTION = 15;
+
+SENSITIVITY = 50;
 
 module.exports = function($compile, $document) {
   return function(scope, el, attrs) {
@@ -355,7 +357,8 @@ module.exports = function($compile, $document) {
     return el.on('wheel', function(ev) {
       ev.stopPropagation();
       ev.preventDefault();
-      return scroll(ev.deltaY);
+      debugger;
+      return scroll(Math.sign(ev.deltaY) * SENSITIVITY);
     });
   };
 };
@@ -396,7 +399,7 @@ module.exports = [
 
 
 },{"./controller":4,"./linker":6}],9:[function(require,module,exports){
-module.exports = ".zdd-scrollbar-rail{position:absolute;width:12px;height:100%;background-color:rgba(98,98,98,0.5);right:5px;top:0}.zdd-scrollbar-thumb{position:relative;transform:translateY(-50%);width:150%;height:30px;background-color:#000;border-radius:20%;margin-left:-25%}"
+module.exports = ".zdd-scrollbar-rail{position:absolute;width:12px;height:100%;background-color:rgba(98,98,98,0.5);right:5px;top:0;user-select:none}.zdd-scrollbar-thumb{position:relative;transform:translateY(-50%);width:150%;height:30px;background-color:#000;border-radius:20%;margin-left:-25%;user-select:none}"
 
 },{}],10:[function(require,module,exports){
 var jade = require("jade/runtime");

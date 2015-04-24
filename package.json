@@ -36,6 +36,7 @@
     "jadeify": "~4.0.1"
   },
   "dependencies": {
-    "insert-css": "~0.2.0"
+    "insert-css": "~0.2.0",
+    "lodash.throttle": "^3.0.2"
   }
 }

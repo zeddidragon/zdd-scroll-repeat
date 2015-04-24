@@ -1,6 +1,7 @@
 template = require './template'
 ITEM_WEIGHT = 20
 THUMB_CORRECTION = 15
+SENSITIVITY = 50
 
 module.exports = ($compile, $document) ->
   (scope, el, attrs) ->
@@ -66,5 +67,6 @@ module.exports = ($compile, $document) ->
       # Stop defaults to keep window from scrolling
       ev.stopPropagation()
       ev.preventDefault()
+      debugger
 
-      scroll(ev.deltaY)
+      scroll Math.sign(ev.deltaY) * SENSITIVITY
