@@ -67,6 +67,5 @@ module.exports = ($compile, $document) ->
       # Stop defaults to keep window from scrolling
       ev.stopPropagation()
       ev.preventDefault()
-      debugger
 
       scroll Math.sign(ev.deltaY) * SENSITIVITY
