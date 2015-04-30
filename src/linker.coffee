@@ -67,5 +67,4 @@ module.exports = ($compile, $document) ->
       # Stop defaults to keep window from scrolling
       ev.stopPropagation()
       ev.preventDefault()
-
-      scroll Math.sign(ev.deltaY) * SENSITIVITY
+      scroll (if ev.deltaY > 0 then 1 else -1) * SENSITIVITY
