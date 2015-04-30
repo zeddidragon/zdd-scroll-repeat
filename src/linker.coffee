@@ -23,6 +23,7 @@ module.exports = ($compile, $document) ->
         ratio  = (y - containerTop) / containerHeight
         index  = Math.floor(ratio * (range.collection.length - range.length))
         range.start = Math.max(0, Math.min(index, length))
+        scrollPosition = range.start * ITEM_WEIGHT
         ratio = Math.max(Math.min(ratio, 1.0), 0.0) * 100
         $thumb.css('top', "#{ratio}%")
 

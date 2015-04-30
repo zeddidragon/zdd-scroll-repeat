@@ -58,13 +58,6 @@ http://zeddidragon.github.io/zdd-scroll-repeat/
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
-## History
-
-9/2/2015 - Initial release
-
-Some stuff happened
-
-18/3/2015 - Fixed scoping issue
 
 ## Credits
 
