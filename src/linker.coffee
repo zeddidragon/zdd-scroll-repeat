@@ -5,7 +5,7 @@ SENSITIVITY = 50
 
 module.exports = ($compile, $document) ->
   (scope, el, attrs) ->
-    rail = $compile(template())
+    rail = $compile template
     mousedown = false
     scrollPosition = 0
     lastTouchY = 0

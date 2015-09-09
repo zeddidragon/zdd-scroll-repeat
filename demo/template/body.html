@@ -1,0 +1,19 @@
+<ul zdd-scroll-repeat="range">
+  <li
+    ng-repeat="thing in thingies | zddScrollFilter:range"
+    ng-style="{backgroundColor: thing.color}">
+    <div class="id"> {{thing.id}}</div>
+    <div class="name"> {{thing.name}}</div>
+    <div class="color"> {{thing.color}}</div>
+  </li>
+</ul>
+
+<ul zdd-scroll-repeat="range2 || (range2={length:10})">
+  <li
+    ng-repeat="thing in thingies | limitTo:limit | zddScrollFilter:range2"
+    ng-style="{backgroundColor: thing.color}">
+    <div class="id"> {{thing.id}}</div>
+    <div class="name"> {{thing.name}}</div>
+    <div class="color"> {{thing.color}}</div>
+  </li>
+</ul>
